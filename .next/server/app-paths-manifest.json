@@ -1,0 +1,12 @@
+{
+  "/_not-found/page": "app/_not-found/page.js",
+  "/coming-soon/page": "app/coming-soon/page.js",
+  "/api/auth/google/route": "app/api/auth/google/route.js",
+  "/auth/callback/page": "app/auth/callback/page.js",
+  "/login/page": "app/login/page.js",
+  "/privacy/page": "app/privacy/page.js",
+  "/terms/page": "app/terms/page.js",
+  "/page": "app/page.js",
+  "/api/auth/google/callback/route": "app/api/auth/google/callback/route.js",
+  "/register/page": "app/register/page.js"
+}
