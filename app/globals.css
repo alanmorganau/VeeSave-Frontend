@@ -1,13 +1,5 @@
-﻿/* Tailwind Core Layers */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-/* Global resets or custom CSS can go here, but DO NOT use Tailwind utility
-   classes directly in this file. Use @apply if needed.
-
-   Example:
-   .page-background {
-     @apply bg-veesaveDark text-white;
-   }
-*/
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}

@@ -1,92 +1,73 @@
-﻿export default function HomePage() {
-  return (
-    <div className="mx-auto flex max-w-6xl flex-1 flex-col gap-10 px-4 py-10 lg:flex-row lg:items-center">
-      <section className="flex-1 space-y-6">
-        <h1 className="text-3xl font-semibold tracking-tight text-slate-50 sm:text-4xl lg:text-5xl">
-          Make every kilometre{" "}
-          <span className="text-veesaveYellow">pay its way.</span>
-        </h1>
-        <p className="max-w-xl text-sm text-slate-300 sm:text-base">
-          VeeSave helps individuals, companies, and fleet managers track,
-          manage, and optimise vehicle expenses  from fuel and maintenance to
-          finance, insurance, and tax reporting.
-        </p>
-        <div className="flex flex-wrap items-center gap-3">
-          <a
-            href="/login"
-            className="inline-flex items-center rounded-lg bg-veesaveYellow px-4 py-2 text-sm font-semibold text-slate-950 hover:bg-yellow-300"
-          >
-            Login to VeeSave
-          </a>
-          <a
-            href="/register"
-            className="inline-flex items-center rounded-lg border border-slate-700 px-4 py-2 text-sm font-semibold text-slate-100 hover:border-veesaveYellow"
-          >
-            Create an account
-          </a>
-          <a
-            href="/coming-soon"
-            className="text-xs text-slate-400 hover:text-slate-200"
-          >
-            View pilot roadmap 
-          </a>
-        </div>
-        <div className="grid gap-3 text-xs text-slate-400 sm:grid-cols-3">
-          <div className="rounded-xl border border-slate-800 bg-slate-950/40 p-3">
-            <div className="text-slate-200 font-semibold text-xs">
-              Individual drivers
-            </div>
-            <p className="mt-1">
-              Capture receipts, log trips, and stay ahead of rego, insurance,
-              and servicing.
-            </p>
-          </div>
-          <div className="rounded-xl border border-slate-800 bg-slate-950/40 p-3">
-            <div className="text-slate-200 font-semibold text-xs">
-              SMEs & companies
-            </div>
-            <p className="mt-1">
-              See whole-of-fleet cost trends and support cleaner, data-backed
-              decisions.
-            </p>
-          </div>
-          <div className="rounded-xl border border-slate-800 bg-slate-950/40 p-3">
-            <div className="text-slate-200 font-semibold text-xs">
-              Fleet managers
-            </div>
-            <p className="mt-1">
-              Surface outliers, high-cost assets, and compliance risks in a
-              single view.
-            </p>
-          </div>
-        </div>
-      </section>
+'use client';
 
-      <section className="flex-1">
-        <div className="rounded-2xl border border-slate-800 bg-slate-950/60 p-4 shadow-lg shadow-black/40">
-          <div className="mb-3 text-xs font-semibold uppercase tracking-wide text-veesaveYellow">
-            VeeSave preview snapshot
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+import SlideMenu from '../components/SlideMenu';
+
+export default function Home() {
+  return (
+    <main className="min-h-screen flex flex-col bg-veesaveLight text-veesaveDark">
+      {/* Top navigation / branding */}
+      <Header />
+
+      {/* Body with slide-out menu + content */}
+      <div className="flex flex-1">
+        {/* Left-side slide / hamburger menu */}
+        <aside className="w-64 max-w-xs border-r border-gray-200 bg-white/70 backdrop-blur-sm">
+          <SlideMenu isOpen={true} />
+        </aside>
+
+        {/* Main content area */}
+        <section className="flex-1 max-w-4xl mx-auto px-6 py-12">
+          <h1 className="text-4xl font-bold mb-4">
+            Welcome to VeeSave
+          </h1>
+
+          <p className="text-lg mb-6">
+            You’re now running the new{' '}
+            <span className="font-semibold">VeeSave App Router</span>{' '}
+            environment on the production server.
+          </p>
+
+          <div className="grid gap-6 md:grid-cols-2">
+            <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
+              <h2 className="text-xl font-semibold mb-2">
+                What’s live right now?
+              </h2>
+              <ul className="list-disc list-inside space-y-1 text-sm leading-relaxed">
+                <li>Next.js 14 App Router frontend.</li>
+                <li>Deployed via PM2 on port 3000.</li>
+                <li>Served securely through NGINX and HTTPS.</li>
+                <li>Core VeeSave theme, logo and menu components wired in.</li>
+              </ul>
+            </div>
+
+            <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
+              <h2 className="text-xl font-semibold mb-2">
+                What’s coming next?
+              </h2>
+              <ul className="list-disc list-inside space-y-1 text-sm leading-relaxed">
+                <li>Multi-page navigation (Dashboard, Trips, Expenses, Settings).</li>
+                <li>Authentication flows (Login, Register, Forgot password).</li>
+                <li>Connected data from the VeeSave backend APIs.</li>
+                <li>UI polish for investor demo and pilot rollout.</li>
+              </ul>
+            </div>
           </div>
-          <div className="space-y-3 text-xs text-slate-300">
-            <div className="flex items-center justify-between rounded-lg bg-slate-900/70 px-3 py-2">
-              <span>Total monthly fuel</span>
-              <span className="font-mono text-veesaveYellow">$12,480</span>
-            </div>
-            <div className="flex items-center justify-between rounded-lg bg-slate-900/70 px-3 py-2">
-              <span>Fleet utilisation</span>
-              <span className="font-mono text-slate-100">83%</span>
-            </div>
-            <div className="flex items-center justify-between rounded-lg bg-slate-900/70 px-3 py-2">
-              <span>Vehicles with overdue service</span>
-              <span className="font-mono text-red-400">7</span>
-            </div>
-            <p className="text-[11px] text-slate-500">
-              Demo data only. Actual analytics will connect to your vehicles,
-              expenses, and fleet policies during the pilot.
+
+          <div className="mt-8 rounded-2xl border border-dashed border-veesaveYellow/70 bg-yellow-50 p-6">
+            <h3 className="text-lg font-semibold mb-2">
+              You’re in build mode
+            </h3>
+            <p className="text-sm leading-relaxed">
+              This screen is the active production UI shell. As we add pages and features, they’ll appear here without changing the deployment pipeline we just stabilised.
             </p>
           </div>
-        </div>
-      </section>
-    </div>
+        </section>
+      </div>
+
+      {/* Footer */}
+      <Footer />
+    </main>
   );
 }
