@@ -1,73 +1,121 @@
-'use client';
+﻿import Link from "next/link";
 
-import Header from '../components/Header';
-import Footer from '../components/Footer';
-import SlideMenu from '../components/SlideMenu';
-
-export default function Home() {
+export default function HomePage() {
   return (
-    <main className="min-h-screen flex flex-col bg-veesaveLight text-veesaveDark">
-      {/* Top navigation / branding */}
-      <Header />
-
-      {/* Body with slide-out menu + content */}
-      <div className="flex flex-1">
-        {/* Left-side slide / hamburger menu */}
-        <aside className="w-64 max-w-xs border-r border-gray-200 bg-white/70 backdrop-blur-sm">
-          <SlideMenu isOpen={true} />
-        </aside>
-
-        {/* Main content area */}
-        <section className="flex-1 max-w-4xl mx-auto px-6 py-12">
-          <h1 className="text-4xl font-bold mb-4">
-            Welcome to VeeSave
-          </h1>
-
-          <p className="text-lg mb-6">
-            You’re now running the new{' '}
-            <span className="font-semibold">VeeSave App Router</span>{' '}
-            environment on the production server.
-          </p>
-
-          <div className="grid gap-6 md:grid-cols-2">
-            <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
-              <h2 className="text-xl font-semibold mb-2">
-                What’s live right now?
-              </h2>
-              <ul className="list-disc list-inside space-y-1 text-sm leading-relaxed">
-                <li>Next.js 14 App Router frontend.</li>
-                <li>Deployed via PM2 on port 3000.</li>
-                <li>Served securely through NGINX and HTTPS.</li>
-                <li>Core VeeSave theme, logo and menu components wired in.</li>
-              </ul>
+    <div className="bg-black text-slate-100">
+      <section className="mx-auto max-w-6xl px-4 py-10 sm:py-14 sm:px-6 lg:px-8">
+        <div className="grid gap-10 md:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] md:items-center">
+          <div className="space-y-6">
+            <div className="inline-flex items-center gap-2 rounded-full border border-slate-700 bg-slate-900/60 px-3 py-1 text-xs font-semibold uppercase tracking-tight text-slate-200">
+              <span className="h-2 w-2 rounded-full bg-emerald-400" />
+              <span>Early Access • Pilot Program</span>
             </div>
 
-            <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
-              <h2 className="text-xl font-semibold mb-2">
-                What’s coming next?
-              </h2>
-              <ul className="list-disc list-inside space-y-1 text-sm leading-relaxed">
-                <li>Multi-page navigation (Dashboard, Trips, Expenses, Settings).</li>
-                <li>Authentication flows (Login, Register, Forgot password).</li>
-                <li>Connected data from the VeeSave backend APIs.</li>
-                <li>UI polish for investor demo and pilot rollout.</li>
-              </ul>
+            <div className="space-y-3">
+              <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl md:text-[3.1rem] md:leading-[1.05]">
+                Turn every kilometre into a{" "}
+                <span className="text-[#f7b500]">smarter expense.</span>
+              </h1>
+
+              <p className="max-w-xl text-sm text-slate-300 sm:text-base">
+                VeeSave helps you capture receipts, track fuel and running costs,
+                and stay compliant without spreadsheets or shoeboxes. Designed for
+                drivers, tradies, and fleets that want clarity, not chaos.
+              </p>
+            </div>
+
+            {/* BUTTON GROUP */}
+            <div className="flex flex-wrap gap-3">
+
+              {/* Go to Dashboard (Active: Yellow) */}
+              <Link
+                href="/dashboard"
+                className="rounded-full bg-[#f7b500] px-5 py-2.5 text-sm font-semibold text-black shadow-md transition hover:bg-amber-400"
+              >
+                Go to Dashboard
+              </Link>
+
+              {/* View Trips & Logs */}
+              <Link
+                href="/trips-logs"
+                className="rounded-full border border-slate-700 bg-black px-5 py-2.5 text-sm font-semibold text-slate-100 transition hover:bg-[#f7b500] hover:text-black hover:border-[#f7b500]"
+              >
+                View Trips &amp; Logs
+              </Link>
+
+              {/* NEW: Get Special Deals */}
+              <Link
+                href="/special-deals"
+                className="rounded-full border border-slate-700 bg-black px-5 py-2.5 text-sm font-semibold text-slate-100 transition hover:bg-[#f7b500] hover:text-black hover:border-[#f7b500]"
+              >
+                Get Special Deals
+              </Link>
+
+            </div>
+
+            {/* Feature highlights */}
+            <div className="grid gap-4 text-xs text-slate-400 sm:grid-cols-3 sm:text-sm">
+              <div>
+                <p className="font-semibold text-slate-200">Built for real life</p>
+                <p>Single vehicles, small fleets, and busy humans.</p>
+              </div>
+              <div>
+                <p className="font-semibold text-slate-200">Audit-friendly</p>
+                <p>Keep everything tidy for the ATO and your accountant.</p>
+              </div>
+              <div>
+                <p className="font-semibold text-slate-200">Real-world insights</p>
+                <p>Spot trends, leaks, and hidden costs in minutes.</p>
+              </div>
             </div>
           </div>
 
-          <div className="mt-8 rounded-2xl border border-dashed border-veesaveYellow/70 bg-yellow-50 p-6">
-            <h3 className="text-lg font-semibold mb-2">
-              You’re in build mode
-            </h3>
-            <p className="text-sm leading-relaxed">
-              This screen is the active production UI shell. As we add pages and features, they’ll appear here without changing the deployment pipeline we just stabilised.
+          {/* Snapshot Card */}
+          <div className="rounded-2xl border border-slate-800 bg-gradient-to-br from-slate-900 to-slate-950 p-4 sm:p-6 shadow-xl">
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">
+              Snapshot · This Month
             </p>
-          </div>
-        </section>
-      </div>
 
-      {/* Footer */}
-      <Footer />
-    </main>
+            <div className="mt-4 grid gap-4 sm:grid-cols-3">
+              <div className="rounded-xl bg-slate-900/70 p-4">
+                <p className="text-xs text-slate-400">Total spend</p>
+                <p className="mt-1 text-xl font-semibold">$1,240</p>
+                <p className="text-xs text-emerald-400">-12% vs last month</p>
+              </div>
+
+              <div className="rounded-xl bg-slate-900/70 p-4">
+                <p className="text-xs text-slate-400">Fuel efficiency</p>
+                <p className="mt-1 text-xl font-semibold">6.8 L / 100km</p>
+                <p className="text-xs text-slate-400">Based on logged trips</p>
+              </div>
+
+              <div className="rounded-xl bg-slate-900/70 p-4">
+                <p className="text-xs text-slate-400">Claim-ready</p>
+                <p className="mt-1 text-xl font-semibold">37 trips</p>
+                <p className="text-xs text-slate-400">Fully documented</p>
+              </div>
+            </div>
+
+            <div className="mt-6 space-y-3">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">
+                Upcoming
+              </p>
+              <div className="space-y-2 text-xs sm:text-sm">
+                <div className="flex items-center justify-between rounded-lg bg-slate-900/80 px-3 py-2">
+                  <span className="text-slate-200">Rego renewal</span>
+                  <span className="text-amber-400">Due in 14 days</span>
+                </div>
+
+                <div className="flex items-center justify-between rounded-lg bg-slate-900/80 px-3 py-2">
+                  <span className="text-slate-200">Service check</span>
+                  <span className="text-slate-400">3,200km remaining</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+    </div>
   );
 }

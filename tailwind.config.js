@@ -1,18 +1,16 @@
-﻿/** @type {import('tailwindcss').Config} */
-module.exports = {
+﻿module.exports = {
   content: [
-    './app/**/*.{js,ts,jsx,tsx}',
-    './components/**/*.{js,ts,jsx,tsx}',
-    './pages/**/*.{js,ts,jsx,tsx}',
+    "./app/**/*.{js,ts,jsx,tsx}",
+    "./components/**/*.{js,ts,jsx,tsx}"
   ],
   theme: {
     extend: {
       colors: {
-        veesaveDark: '#1a1a1a',
-        veesaveYellow: '#FFD400',
-        veesaveLight: '#f4f4f4',
-      },
-    },
+        veesaveDark: "#0e0e0e",
+        veesaveLight: "#f4f4f4",
+        veesaveGold: "#f7b500"
+      }
+    }
   },
-  plugins: [],
+  plugins: []
 };
