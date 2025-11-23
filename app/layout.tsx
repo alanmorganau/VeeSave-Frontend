@@ -1,19 +1,21 @@
-﻿import type { Metadata } from "next";
 import "./globals.css";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 
-export const metadata: Metadata = {
+export const metadata = {
   title: "VeeSave — Drive Smart | Save Smart",
-  description: "Vehicle expense tracking for smart drivers, tradies and fleets.",
+  description:
+    "VeeSave helps drivers, tradies and fleets turn every kilometre into a smarter expense.",
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body className="min-h-screen flex flex-col bg-black text-white">
+        <Header />
+        <main className="flex-1">{children}</main>
+        <Footer />
+      </body>
     </html>
   );
 }
